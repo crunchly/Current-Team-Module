@@ -9,7 +9,7 @@ module.exports = {
     path: DIST_DIR
   },
   module : {
-    loaders : [ 
+    rules : [ 
       {
         test : /\.jsx?/, //? means the 'x' is optional
         include : SRC_DIR, //traverse the source directory and find anything that ends in jsx then 
