@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import axios from 'axios'; //install axio dependency
 
 class CurrentTeam extends React.Component {
   constructor(props) {
@@ -12,12 +12,18 @@ class CurrentTeam extends React.Component {
   }
 
   componentDidMount() {
-    
+
   }
 
   fetchTeam() {
     //use axios call to server
     //then set state with response
+    axios.get('/people/organization') //not correct endpoint
+      .then( (team) => {
+        //set state
+        //this.setState({people: team})
+      })
+      .catch( error => console.error('Error fetching team: ', error));
   }
 
   //module only shows 8 at most, at a time
