@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/crunchly/Current-Team-Module#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.3",
     "mongoose": "^5.0.14",
     "react": "^16.3.1",
