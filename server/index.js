@@ -23,6 +23,8 @@ app.get('/people/:org', (req, res) => {
       const members = [];
       const team = [];
 
+      // if a person updated their title multiple times,
+      // there are duplicate entries of that person, and we only want their most recent update
       result.forEach((row) => {
         if (!members.includes(row.member_id)) {
           members.push(row.member_id);
