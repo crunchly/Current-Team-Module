@@ -7,7 +7,7 @@ const personSchema = new mongoose.Schema({
   first_name: String,
   last_name: String,
   title: String,
-  member_id: String,
+  member_id: Number,
   company: String,
   thumbnail_url: String,
   updated_at: String,
