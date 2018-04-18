@@ -17,7 +17,7 @@ fs.readFile(path.join(__dirname, 'people.json'), (error, data) => {
   const people = JSON.parse(data);
 
   people.forEach((person) => {
-    person.member_id = person.id;
+    person.member_id = parseInt(person.id);
     person.company = person.affiliation_name;
     person.thumbnail_url = `https://s3-us-west-1.amazonaws.com/crunchly-team/${generateRandomImage()}.jpg`;
     person.updated_at = person.modified_at;
