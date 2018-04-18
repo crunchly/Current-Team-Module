@@ -1,0 +1,4 @@
+# By default eslint ignores node_modules
+
+# Ignore webpack bundle
+client/dist/bundle.js
