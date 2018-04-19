@@ -1,18 +1,18 @@
 const mongoose = require('mongoose');
 const db = require('./index.js');
-mongoose.Promise = global.Promise;
 
+mongoose.Promise = global.Promise;
 
 const personSchema = new mongoose.Schema({
   first_name: String,
   last_name: String,
   title: String,
-  member_id: String,
+  member_id: Number,
   company: String,
   thumbnail_url: String,
   updated_at: String,
 });
-  
+
 const Person = mongoose.model('Person', personSchema);
 
 module.exports = Person;
