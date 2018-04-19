@@ -23,7 +23,8 @@ app.get('/people/:org', (req, res) => {
         _id : '$member_id',
         first_name: {$first: '$first_name'},
         last_name: {$first: '$last_name'}, 
-        title: {$first: '$title'}
+        title: {$first: '$title'},
+        photo_url: {$first: '$thumbnail_url'},
       }
     },
     { $sort: { _id: 1 } },
