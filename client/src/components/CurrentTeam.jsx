@@ -1,5 +1,5 @@
 import React from 'react';
-// import axios from 'axios'; //install axio dependency
+import axios from 'axios';
 import ModuleBar from './ModuleBar.jsx';
 import TeamTotal from './TeamTotal.jsx';
 import TeamMember from './TeamMember.jsx'
