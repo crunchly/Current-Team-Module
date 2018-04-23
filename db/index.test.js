@@ -1,7 +1,7 @@
 // test database query?
 // test if can save?
 // test if can remove?
-import mongoose from 'module';
+const mongoose = require('mongoose');
 
 const personSchema = new mongoose.Schema({
   first_name: String,
@@ -29,24 +29,37 @@ const sampleData = [
 
 
 describe('Person Model', () => {
-  let person;
 
   beforeAll(() => { //connect to db
     mongoose.connect('mongodb://localhost/test');
-    return Person.create(sampleData); //should save document to db using promise
+    return Person.create(sampleData); //should save document(s) to db using promise
   });
 
-  // beforeEach(() => { //setup demo data
-  //   person = new Person(sampleData[0]);
-  //   return person.save(); //saves one document using promise
-  // });
-
-  // afterEach(() => { //remove demo data
-  //   return personModel.removePerson();
-  // });
-
   afterAll((done) => { //disconnect from db
-    mongoose.disconnect(done);
-  })
+    mongoose.connection.dropCollection('testpeople')
+    .then(() => mongoose.disconnect(done));
+  });
+
+  test('Should return a result when queried', () => {
+    return Person.find()
+      .then((result) => {
+        console.log(result)
+        expect(result).toHaveLength(1);
+        expect(result[0].first_name).toBe('Mark');
+        expect(result[0].last_name).toBe('Zuckerberg');
+        expect(result[0].title).toBe('CEO');
+        expect(result[0].member_id).toBe(1);
+        expect(result[0].company).toBe('Facebook');
+        expect(result[0].thumbnail_url).toBe('http://www.nuskool.com/learn/wp-content/uploads/2015/05/markzuckerberg-thumbnail1.jpg');
+        expect(result[0].updated_at).toBe('2018-12-01 01:00:00');
+      });
+  });
+
+  test(`Should return empty result when document doesn't exists`, () => {
+    return Person.find({member_id: 2})
+      .then((result) => {
+        expect(result).toHaveLength(0);
+      });
+  });
 
 });
