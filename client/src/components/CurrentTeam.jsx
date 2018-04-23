@@ -15,20 +15,21 @@ class CurrentTeam extends React.Component {
     }
   }
 
-  // componentDidMount() {
-    // this.fetchTeam();
-  // }
+  componentWillMount() {
+    this.fetchTeam();
+  }
 
-  // fetchTeam() {
-  //   //use axios call to server
-  //   //then set state with response
-  //   axios.get('/people/organization') //not correct endpoint
-  //     .then( (team) => {
-  //       //set state
-  //       //this.setState({people: team})
-  //     })
-  //     .catch( error => console.error('Error fetching team: ', error));
-  // }
+  fetchTeam() {
+    axios.get('/people/Facebook') //pass :org as a prop and do ${this.props.org}
+      .then((team) => {
+        this.setState({
+          people: team.data, 
+          currentView: team.data.slice(0,8),
+          total: team.data.length,
+        });
+      })
+      .catch( error => console.error('Error fetching team: ', error));
+  }
 
   render() {
     return(
