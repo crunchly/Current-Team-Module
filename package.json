@@ -8,7 +8,7 @@
     "build": "webpack -d --watch",
     "db:setup": "node db/seed.js",
     "lint": "eslint . --ext .js, .jsx",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
