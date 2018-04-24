@@ -9,23 +9,19 @@ class CurrentTeam extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      people: this.props.test,
-      currentView: this.props.test.slice(0, 8),
-      total: this.props.test.length,
+      people: [],
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.fetchTeam();
   }
 
   fetchTeam() {
-    axios.get('/people/Facebook') //pass :org as a prop and do ${this.props.org}
+    axios.get(`http://localhost:3004/people/${this.props.org}`)
       .then((team) => {
         this.setState({
           people: team.data, 
-          currentView: team.data.slice(0,8),
-          total: team.data.length,
         });
       })
       .catch( error => console.error('Error fetching team: ', error));
@@ -36,12 +32,11 @@ class CurrentTeam extends React.Component {
       <div className="team">
         <ModuleBar />
         
-        <TeamTotal total={this.state.total}/>
+        {this.state.people.length ? <TeamTotal total={this.state.people.length}/> : null}
         
         <div className="team-container">
-          {this.state.currentView.map(person => 
-            <TeamMember person={person} key={person._id}/>
-          )}
+          {this.state.people.length > 0 ? this.state.people.slice(0,8).map(person => 
+            <TeamMember person={person} key={person._id}/>) : null}
         </div>
       </div>
     )

@@ -2,3 +2,6 @@
 
 # Ignore webpack bundle
 client/dist/bundle.js
+
+# Ignore jest coverage
+coverage

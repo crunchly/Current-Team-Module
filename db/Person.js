@@ -15,14 +15,8 @@ const personSchema = new mongoose.Schema({
 
 const Person = mongoose.model('Person', personSchema);
 
-// company query is case sensitve
-//   time permitting, should have set all company names as lowercase before seeding into db
-//   then query lowercase name
-
-// if a person updated their title multiple times,
-// there are duplicate entries of that person, and we only want their most recent update
-const getTeam = (company) => (
-  Person.aggregate([
+const getTeam = (company, model = Person) => (
+  model.aggregate([
     { $match: { company } },
     { $sort: { updated_at: -1 } },
     { $group: {
@@ -37,5 +31,6 @@ const getTeam = (company) => (
   ])
 )
 
+module.exports.schema = personSchema;
 module.exports.model = Person;
 module.exports.getTeam = getTeam;
