@@ -9,18 +9,18 @@ class CurrentTeam extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      people: this.props.test,
-      currentView: this.props.test.slice(0, 8),
-      total: this.props.test.length,
+      people: [],
+      currentView: null,
+      total: null
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.fetchTeam();
   }
 
   fetchTeam() {
-    axios.get('/people/Facebook') //pass :org as a prop and do ${this.props.org}
+    axios.get(`/people/${this.props.org}`)
       .then((team) => {
         this.setState({
           people: team.data, 
@@ -36,12 +36,11 @@ class CurrentTeam extends React.Component {
       <div className="team">
         <ModuleBar />
         
-        <TeamTotal total={this.state.total}/>
+        {this.state.total ? <TeamTotal total={this.state.total}/> : null}
         
         <div className="team-container">
-          {this.state.currentView.map(person => 
-            <TeamMember person={person} key={person._id}/>
-          )}
+          {this.state.total > 0 ? this.state.currentView.map(person => 
+            <TeamMember person={person} key={person._id}/>) : null}
         </div>
       </div>
     )
