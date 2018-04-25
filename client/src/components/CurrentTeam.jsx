@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+import '../../dist/styles.css'
 import ModuleBar from './ModuleBar.jsx';
 import TeamTotal from './TeamTotal.jsx';
-import TeamMember from './TeamMember.jsx'
+import TeamMember from './TeamMember.jsx';
 
 
 class CurrentTeam extends React.Component {
