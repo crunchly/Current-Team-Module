@@ -25,7 +25,7 @@ fs.readFile(path.join(__dirname, 'people.json'), (error, data) => {
     delete person.affiliation_name;
     delete person.modified_at;
 
-    const member = new Person(person);
+    const member = new Person.model(person);
     member.save((error, member) => {
       if (error) return console.error('Error saving to database: ', error);
     });
