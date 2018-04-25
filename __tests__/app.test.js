@@ -14,7 +14,7 @@ describe('Test the root path', () => {
     return request(app)
       .get('/people/Facebook')
       .then(response => {
-        expect(response.body).toHaveLength(31);
+        expect(response.body).toHaveLength(32);
       })
   });
 
