@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const mongoUri = 'mongodb://localhost/crunchly';
+const mongoUri = 'mongodb://database/crunchly';
 
 const db = mongoose.connect(mongoUri);
 
