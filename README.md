@@ -17,14 +17,11 @@
 
 ## Usage
 
-> Some usage instructions
+> Tests only pass if local Mongo database is active.
 
 ## Requirements
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
+- Node 8.11.1
 
 ## Development
 
