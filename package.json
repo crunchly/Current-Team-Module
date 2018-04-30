@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server/index.js",
+    "docker": "webpack -p && node db/seed.js & node server/index.js",
     "build": "webpack -d --watch",
     "db:setup": "node db/seed.js",
     "lint": "eslint . --ext .js, .jsx",
