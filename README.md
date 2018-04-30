@@ -18,9 +18,9 @@
 ## Usage
 
 > 1. Install dependencies.
-> 2. Seed database with ```sh npm run db:setup```.
-> 3. Run webpack with ```sh npm run build```.
-> 4. Run server with ```sh npm start```.
+> 2. Seed database with ```npm run db:setup```.
+> 3. Run webpack with ```npm run build```.
+> 4. Run server with ```npm start```.
 
 > Tests only pass if local Mongo database is active.
 
