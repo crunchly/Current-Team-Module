@@ -17,14 +17,16 @@
 
 ## Usage
 
-> Some usage instructions
+> 1. Install dependencies.
+> 2. Seed database with ```npm run db:setup```.
+> 3. Run webpack with ```npm run build```.
+> 4. Run server with ```npm start```.
+
+> Tests only pass if local Mongo database is active.
 
 ## Requirements
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
+- Node 8.11.1
 
 ## Development
 

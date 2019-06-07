@@ -3,7 +3,7 @@ import axios from 'axios';
 import '../../dist/styles.css'
 import ModuleBar from './ModuleBar.jsx';
 import TeamTotal from './TeamTotal.jsx';
-import TeamMember from './TeamMember.jsx';
+import TeamMemberList from './TeamMemberList.jsx';
 
 
 class CurrentTeam extends React.Component {
@@ -35,10 +35,7 @@ class CurrentTeam extends React.Component {
         
         {this.state.people.length ? <TeamTotal total={this.state.people.length}/> : null}
         
-        <div className="team-container">
-          {this.state.people.length > 0 ? this.state.people.slice(0,8).map(person => 
-            <TeamMember person={person} key={person._id}/>) : null}
-        </div>
+        <TeamMemberList people={this.state.people} />
       </div>
     )
   }
