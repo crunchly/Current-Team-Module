@@ -22,8 +22,8 @@
   "homepage": "https://github.com/crunchly/Current-Team-Module#readme",
   "dependencies": {
     "axios": "^0.19.0",
-    "body-parser": "^1.18.2",
-    "express": "^4.16.3",
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
     "mongoose": "^5.5.13",
     "react": "^16.3.1",
     "react-dom": "^16.3.1"
